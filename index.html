@@ -3,74 +3,109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dim - زبان برنامه‌نویسی دایموند</title>
-    <meta name="description" content="Dim (Diamond) - اولین زبان برنامه‌نویسی کامل فارسی با دستورات بومی، قدرتمند و خلاقانه">
+    <title>Dim - Diamond Programming Language</title>
+    <meta name="description" content="Dim - اولین زبان برنامه‌نویسی کامل فارسی | The First Full Persian Programming Language">
+    
+    <!-- منابع خارجی -->
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+    
     <style>
-        body {margin:0; font-family: 'Tahoma', sans-serif; background: #0f0c29; color:#fff; overflow-x:hidden;}
-        header {background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding:60px 20px; text-align:center;}
-        .logo {font-size: 100px; animation: float 6s infinite;}
-        @keyframes float {0%,100%{transform:translateY(0)} 50%{transform:translateY(-20px)}}
-        h1 {font-size: 3.5em; margin:20px 0; letter-spacing: 2px;}
-        .lang-switch {position:absolute; top:20px; left:20px; background:rgba(255,255,255,0.2); padding:10px 20px; border-radius:50px; cursor:pointer;}
-        .container {max-width:1100px; margin:0 auto; padding:40px 20px;}
-        .card {background:rgba(255,255,255,0.1); border-radius:20px; padding:30px; margin:30px 0; backdrop-filter:blur(10px);}
-        .btn {display:inline-block; background:#00d4ff; color:#000; padding:15px 40px; border-radius:50px; text-decoration:none; font-weight:bold; margin:10px; transition:0.3s;}
-        .btn:hover {transform:scale(1.1); background:#fff;}
-        footer {text-align:center; padding:40px; background:#000; margin-top:60px;}
+        :root {--primary:#667eea; --secondary:#764ba2;}
+        *{margin:0; padding:0; box-sizing:border-box;}
+        body {font-family:'Vazirmatn','Roboto',sans-serif; background:linear-gradient(135deg,#0f0c29,#302b63,#24243e); color:#fff;}
+        .lang-switch {position:fixed; top:20px; left:20px; z-index:999; background:rgba(255,255,255,0.15); padding:12px 25px; border-radius:50px; cursor:pointer; backdrop-filter:blur(10px);}
+        
+        header {text-align:center; padding:100px 20px 60px;}
+        .logo-container {width:250px; height:250px; margin:0 auto 30px; animation:float 6s infinite;}
+        .logo-container img {width:100%; height:100%; object-fit:contain; filter:drop-shadow(0 0 40px rgba(102,126,234,0.7));}
+        @keyframes float {0%,100%{transform:translateY(0)} 50%{transform:translateY(-25px)}}
+        
+        h1 {font-size:5em; background:linear-gradient(45deg,#667eea,#f093fb); -webkit-background-clip:text; -webkit-text-fill-color:transparent; margin:20px 0;}
+        .subtitle {font-size:2em; opacity:0.9;}
+        
+        .container {max-width:1200px; margin:0 auto; padding:40px 20px;}
+        .features {display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:40px; margin:80px 0;}
+        .card {background:rgba(255,255,255,0.08); border-radius:25px; padding:40px; text-align:center; backdrop-filter:blur(12px); border:1px solid rgba(255,255,255,0.1); transition:0.4s;}
+        .card:hover {transform:translateY(-20px); box-shadow:0 25px 50px rgba(102,126,234,0.4);}
+        .card i {font-size:4em; background:linear-gradient(45deg,#667eea,#f093fb); -webkit-background-clip:text; -webkit-text-fill-color:transparent; margin-bottom:25px;}
+        
+        .buttons {text-align:center; margin:80px 0;}
+        .btn {display:inline-block; background:linear-gradient(45deg,#667eea,#764ba2); color:white; padding:20px 60px; border-radius:50px; text-decoration:none; font-weight:bold; font-size:1.4em; margin:20px; transition:0.4s; box-shadow:0 15px 35px rgba(102,126,234,0.5);}
+        .btn:hover {transform:scale(1.12); box-shadow:0 25px 50px rgba(102,126,234,0.7);}
+        
+        footer {text-align:center; padding:70px 20px; background:rgba(0,0,0,0.6); font-size:1.2em;}
+        
         .en {display:none;}
     </style>
 </head>
 <body>
 
-<div class="lang-switch" onclick="toggleLang()">🇬🇧 English</div>
+<div class="lang-switch" onclick="toggleLang()">English</div>
 
-<header>
-    <div class="logo">💎</div>
+<header data-aos="fade-down">
+    <div class="logo-container">
+        <img src="logo.png" alt="Dim Logo">
+    </div>
     <h1>Dim Language</h1>
-    <p>زبان برنامه‌نویسی دایموند</p>
+    <p class="subtitle fa">زبان برنامه‌نویسی دایموند</p>
+    <p class="subtitle en">Diamond Programming Language</p>
 </header>
 
 <div class="container">
-    <div class="card fa">
-        <h2>اولین زبان برنامه‌نویسی کامل فارسی</h2>
-        <p>Dim یک زبان تفسیری قدرتمند با سینتکس بومی فارسی است که برای سرعت توسعه، خوانایی و لذت برنامه‌نویسی طراحی شده.</p>
-        <ul style="text-align:right; direction:rtl;">
-            <li>دستورات کاملاً فارسی (put، inp، str، arr، LOOP، IF و ...)</li>
-            <li>پشتیبانی از آرایه، تابع، فایل، صدا، رنگ و گرافیک ساده</li>
-            <li>اجرا مستقیم بدون کامپایلر پیچیده</li>
-            <li>کاملاً متن‌باز و رایگان</li>
-        </ul>
+    <div class="features">
+        <div class="card fa" data-aos="fade-up" data-aos-delay="100">
+            <i class="fas fa-language"></i>
+            <h3>سینتکس کاملاً فارسی</h3>
+            <p>دستورات بومی مثل put، inp، LOOP، IF</p>
+        </div>
+        <div class="card fa" data-aos="fade-up" data-aos-delay="200">
+            <i class="fas fa-rocket"></i>
+            <h3>قدرتمند و سریع</h3>
+            <p>فایل، صدا، رنگ، آرایه، تابع و ...</p>
+        </div>
+        <div class="card fa" data-aos="fade-up" data-aos-delay="300">
+            <i class="fas fa-globe"></i>
+            <h3>متن‌باز و رایگان</h3>
+            <p>تحت مجوز MIT - ساخته‌شده در ایران</p>
+        </div>
+
+        <div class="card en" data-aos="fade-up" data-aos-delay="100">
+            <i class="fas fa-language"></i>
+            <h3>Native Persian Syntax</h3>
+            <p>Commands like put, inp, LOOP, IF</p>
+        </div>
+        <div class="card en" data-aos="fade-up" data-aos-delay="200">
+            <i class="fas fa-rocket"></i>
+            <h3>Powerful & Fast</h3>
+            <p>File I/O, sound, color, arrays, functions</p>
+        </div>
+        <div class="card en" data-aos="fade-up" data-aos-delay="300">
+            <i class="fas fa-globe"></i>
+            <h3>Open Source & Free</h3>
+            <p>MIT License - Made in Iran</p>
+        </div>
     </div>
 
-    <div class="card en">
-        <h2>The First Full Persian Programming Language</h2>
-        <p>Dim (Diamond) is a powerful interpreted programming language with native Persian syntax, designed for rapid development, readability and joy of coding.</p>
-        <ul>
-            <li>Fully Persian commands (put, inp, str, arr, LOOP, IF, etc.)</li>
-            <li>Support for arrays, functions, file I/O, sound, color and simple graphics</li>
-            <li>Runs directly without complex compilation</li>
-            <li>100% open-source and free</li>
-        </ul>
-    </div>
-
-    <div style="text-align:center; margin:50px 0;">
+    <div class="buttons">
         <a href="https://github.com/mohamadiabolfazl456/mohamadiabolfazl456-dim" class="btn">دانلود از گیت‌هاب</a>
-        <a href="#" class="btn">مستندات</a>
-        <a href="#" class="btn">نمونه کدها</a>
+        <a href="#" class="btn">مستندات / Docs</a>
+        <a href="#" class="btn">نمونه کدها / Examples</a>
     </div>
 </div>
 
 <footer>
-    Dim Language © 2025 - اوپن‌سورس تحت مجوز MIT | ساخته‌شده در ایران 🇮🇷
+    Dim Language © 2025 • ساخته‌شده در ایران • اوپن‌سورس تحت مجوز MIT
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 <script>
-function toggleLang() {
-    document.querySelectorAll('.fa').forEach(e => e.style.display = e.style.display === 'none' ? 'block' : 'none');
-    document.querySelectorAll('.en').forEach(e => e.style.display = e.style.display === 'none' ? 'block' : 'none');
-    document.querySelector('.lang-switch').textContent = 
-        document.querySelector('.fa').style.display === 'none' ? '🇮🇷 فارسی' : '🇬🇧 English';
-}
+    AOS.init({duration:1200});
+    function toggleLang() {
+        document.querySelectorAll('.fa,.en').forEach(e => e.style.display = e.style.display==='none'?'block':'none');
+        document.querySelector('.lang-switch').textContent = document.querySelector('.fa').style.display==='none'?'فارسی':'English';
+    }
 </script>
 </body>
 </html>
