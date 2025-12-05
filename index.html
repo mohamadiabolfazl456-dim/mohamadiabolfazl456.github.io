@@ -3,31 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>دایموند - زبان برنامه‌نویسی ابوالفضل</title>
+    <title>Dim - زبان برنامه‌نویسی دایموند</title>
+    <meta name="description" content="Dim (Diamond) - اولین زبان برنامه‌نویسی کامل فارسی با دستورات بومی، قدرتمند و خلاقانه">
     <style>
-        body {font-family: Tahoma; background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d); color: white; text-align: center; padding: 40px; margin: 0;}
-        h1 {font-size: 3.5em; margin: 20px; text-shadow: 0 0 20px cyan;}
-        .diamond {font-size: 8em; animation: spin 6s infinite linear;}
-        @keyframes spin {from {transform: rotate(0deg);} to {transform: rotate(360deg);}}
-        .box {background: rgba(0,0,0,0.6); padding: 40px; border-radius: 30px; margin: 30px auto; max-width: 90%;}
-        a {color: #00ffff; font-size: 1.8em; text-decoration: none; margin: 20px; display: inline-block;}
-        footer {margin-top: 50px; font-size: 1.2em;}
+        body {margin:0; font-family: 'Tahoma', sans-serif; background: #0f0c29; color:#fff; overflow-x:hidden;}
+        header {background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding:60px 20px; text-align:center;}
+        .logo {font-size: 100px; animation: float 6s infinite;}
+        @keyframes float {0%,100%{transform:translateY(0)} 50%{transform:translateY(-20px)}}
+        h1 {font-size: 3.5em; margin:20px 0; letter-spacing: 2px;}
+        .lang-switch {position:absolute; top:20px; left:20px; background:rgba(255,255,255,0.2); padding:10px 20px; border-radius:50px; cursor:pointer;}
+        .container {max-width:1100px; margin:0 auto; padding:40px 20px;}
+        .card {background:rgba(255,255,255,0.1); border-radius:20px; padding:30px; margin:30px 0; backdrop-filter:blur(10px);}
+        .btn {display:inline-block; background:#00d4ff; color:#000; padding:15px 40px; border-radius:50px; text-decoration:none; font-weight:bold; margin:10px; transition:0.3s;}
+        .btn:hover {transform:scale(1.1); background:#fff;}
+        footer {text-align:center; padding:40px; background:#000; margin-top:60px;}
+        .en {display:none;}
     </style>
 </head>
 <body>
-    <div class="diamond">💎</div>
-    <h1>زبان برنامه‌نویسی دایموند (Dim)</h1>
-    <div class="box">
-        <h2>ساخته‌شده توسط ابوالفضل محمدی</h2>
-        <p>۱۸ ساله - اردبیل - راه‌انزاب ناحیه ۲</p>
-        <p>از آبان ۱۴۰۳ فقط برای حال خودم شروع کردم...</p>
-        <p>الان یکی از کامل‌ترین زبان‌های برنامه‌نویسی فارسی دنیاست!</p>
-        <p>نسخه فعلی: ۱.۴ | به‌زودی ۲.۰ 🔥</p>
-        <br><br>
-        <a href="https://github.com/mohamadiabolfazl456/mohamadiabolfazl_dim_lang.github.io">کد منبع در گیت‌هاب</a>
-        <br><br>
-        <p>به زودی: دانلود | داکیومنت | ویدیوهای آموزشی | کانال تلگرام</p>
+
+<div class="lang-switch" onclick="toggleLang()">🇬🇧 English</div>
+
+<header>
+    <div class="logo">💎</div>
+    <h1>Dim Language</h1>
+    <p>زبان برنامه‌نویسی دایموند</p>
+</header>
+
+<div class="container">
+    <div class="card fa">
+        <h2>اولین زبان برنامه‌نویسی کامل فارسی</h2>
+        <p>Dim یک زبان تفسیری قدرتمند با سینتکس بومی فارسی است که برای سرعت توسعه، خوانایی و لذت برنامه‌نویسی طراحی شده.</p>
+        <ul style="text-align:right; direction:rtl;">
+            <li>دستورات کاملاً فارسی (put، inp، str، arr، LOOP، IF و ...)</li>
+            <li>پشتیبانی از آرایه، تابع، فایل، صدا، رنگ و گرافیک ساده</li>
+            <li>اجرا مستقیم بدون کامپایلر پیچیده</li>
+            <li>کاملاً متن‌باز و رایگان</li>
+        </ul>
     </div>
-    <footer>الماس اردبیل 💎 | ۱۴۰۳ - ۲۰۲۵</footer>
+
+    <div class="card en">
+        <h2>The First Full Persian Programming Language</h2>
+        <p>Dim (Diamond) is a powerful interpreted programming language with native Persian syntax, designed for rapid development, readability and joy of coding.</p>
+        <ul>
+            <li>Fully Persian commands (put, inp, str, arr, LOOP, IF, etc.)</li>
+            <li>Support for arrays, functions, file I/O, sound, color and simple graphics</li>
+            <li>Runs directly without complex compilation</li>
+            <li>100% open-source and free</li>
+        </ul>
+    </div>
+
+    <div style="text-align:center; margin:50px 0;">
+        <a href="https://github.com/mohamadiabolfazl456/mohamadiabolfazl456-dim" class="btn">دانلود از گیت‌هاب</a>
+        <a href="#" class="btn">مستندات</a>
+        <a href="#" class="btn">نمونه کدها</a>
+    </div>
+</div>
+
+<footer>
+    Dim Language © 2025 - اوپن‌سورس تحت مجوز MIT | ساخته‌شده در ایران 🇮🇷
+</footer>
+
+<script>
+function toggleLang() {
+    document.querySelectorAll('.fa').forEach(e => e.style.display = e.style.display === 'none' ? 'block' : 'none');
+    document.querySelectorAll('.en').forEach(e => e.style.display = e.style.display === 'none' ? 'block' : 'none');
+    document.querySelector('.lang-switch').textContent = 
+        document.querySelector('.fa').style.display === 'none' ? '🇮🇷 فارسی' : '🇬🇧 English';
+}
+</script>
 </body>
 </html>
