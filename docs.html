@@ -10,75 +10,83 @@
     <style>
         :root {
             --bg: #0f0c29;
-            --card:#1a1740;
-            --accent:#00e5ff;
-            --purple:#764ba2;
-            --text:#e0e0ff;
+            --card: #1a1740;
+            --accent: #00e5ff;
+            --purple: #764ba2;
+            --text: #e0e0ff;
+            --code-bg: #0d0b1e;
         }
-        *{margin:0;padding:0;box-sizing:border-box;}
-        body{
-            font-family:'Vazirmatn',sans-serif;
-            background:#0f0c29;
-            color:var(--text);
-            min-height:100vh;
-            background:linear-gradient(135deg,#0f0c29,#302b63,#24243e);
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            color: var(--text);
+            min-height: 100vh;
+            line-height: 1.8;
         }
-        .back{
-            position:fixed;top:20px;left:20px;background:rgba(0,229,255,0.2);
-            padding:12px 25px;border-radius:50px;color:var(--accent);text-decoration:none;
-            backdrop-filter:blur(10px);z-index:100;font-weight:bold;
+        .back {
+            position: fixed; top: 20px; left: 20px; background: rgba(0,229,255,0.2);
+            padding: 12px 25px; border-radius: 50px; color: var(--accent); text-decoration: none;
+            backdrop-filter: blur(10px); z-index: 100; font-weight: bold; transition: 0.3s;
         }
-        header{
-            text-align:center;padding:60px 20px 40px;
+        .back:hover { background: rgba(0,229,255,0.4); }
+        header { text-align: center; padding: 60px 20px 40px; }
+        .logo { width: 130px; animation: rot 20s linear infinite; margin-bottom: 20px; }
+        @keyframes rot { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        h1 {
+            font-size: 3.8rem;
+            background: linear-gradient(90deg, #764ba2, #00e5ff);
+            -webkit-background-clip: text; background-clip: text;
+            color: transparent;
         }
-        .logo{
-            width:130px;animation:rot 20s linear infinite;margin-bottom:20px;
+        .version { color: var(--accent); font-size: 1.3rem; margin: 15px 0; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+        .section { margin: 70px 0; }
+        .cmd-title {
+            font-size: 2.8rem; color: var(--accent); text-align: center;
+            margin: 40px 0 35px; text-shadow: 0 0 20px rgba(0,229,255,0.4);
         }
-        @keyframes rot{from{transform:rotate(0)}to{transform:rotate(360deg)}}
-        h1{
-            font-size:3.8rem;background:linear-gradient(90deg,#764ba2,#00e5ff);
-            -webkit-background-clip:text;background-clip:text;color:transparent;
+
+        .card {
+            background: var(--card); border-radius: 24px; padding: 32px;
+            margin: 30px 0; box-shadow: 0 12px 35px rgba(0,0,0,0.6);
+            border: 1px solid rgba(118,75,162,0.3); transition: all 0.4s;
         }
-        .version{color:var(--accent);font-size:1.3rem;margin:15px 0;}
-        .container{max-width:1100px;margin:0 auto;padding:0 20px;}
-        .section{
-            margin:60px 0;
+        .card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 25px 50px rgba(118,75,162,0.5);
         }
-        .cmd-title{
-            font-size:2.8rem;color:var(--accent);text-align:center;margin:40px 0 30px;
-            text-shadow:0 0 20px rgba(0,229,255,0.5);
+
+        .desc {
+            font-size: 1.2rem; margin-bottom: 25px; color: #d0d0ff;
         }
-        .card{
-            background:var(--card);border-radius:24px;padding:30px;margin:25px 0;
-            box-shadow:0 10px 30px rgba(0,0,0,0.5;border:1px solid rgba(118,75,162,0.3);
-            transition:0.4s;
+
+        /* کادر کد: چپ‌به‌راست و کاملاً جدا */
+        .code-block {
+            background: var(--code-bg); border-radius: 18px; padding: 24px;
+            border: 1px solid #764ba2; margin: 25px 0; overflow-x: auto;
+            direction: ltr; text-align: left;
         }
-        .card:hover{
-            transform:translateY(-12px);box-shadow:0 20px 40px rgba(118,75,162,0.4);
+        .code-block pre {
+            margin: 0; font-family: 'JetBrains Mono', 'Courier New', monospace;
+            color: #00e5ff; font-size: 1.05rem; line-height: 1.6;
+            white-space: pre;
         }
-        pre{
-            background:#0d0b1e;padding:20px;border-radius:16px;overflow-x:auto;
-            border:1px solid #764ba2;direction:ltr;text-align:left;margin:20px 0;
-            font-size:1.05rem;
+        .code-comment { color: #888; }
+
+        .tags {
+            text-align: center; margin-top: 20px;
         }
-        code{
-            font-family:'JetBrains Mono',monospace;color:#00e5ff;
+        .tag {
+            display: inline-block; background: rgba(0,229,255,0.15);
+            color: var(--accent); padding: 8px 16px; border-radius: 30px;
+            margin: 6px; font-size: 0.95rem; font-weight: 500;
         }
-        .tag{
-            display:inline-block;background:rgba(0,229,255,0.2);color:var(--accent);
-            padding:6px 14px;border-radius:30px;margin:4px;font-size:0.9rem;
-        }
-        table{
-            width:100%;border-collapse:collapse;margin:25px 0;background:var(--card);border-radius:16px;overflow:hidden;
-        }
-        th,td{
-            padding:14px;text-align:center;border-bottom:1px solid rgba(118,75,162,0.4);
-        }
-        th{
-            background:rgba(118,75,162,0.4);color:white;
-        }
-        footer{
-            text-align:center;padding:80px 20px 40px;color:#666;font-size:0.95rem;
+
+        footer {
+            text-align: center; padding: 90px 20px 50px; color: #888;
+            font-size: 1rem;
         }
     </style>
 </head>
@@ -95,24 +103,29 @@
 
     <!-- put() -->
     <div class="section">
-        <h2 class="cmd-title">()put — چاپ و خروجی</h2>
+        <h2 class="cmd-title">()put — چاپ و خروجی قدرتمند</h2>
         <div class="card">
-            <p>قدرتمندترین تابع چاپ در تاریخ برنامه‌نویسی فارسی!</p>
-            <pre><code># مثال کامل تمام قابلیت‌های put()
-str name = ^Ali^
+            <div class="desc">
+                پیشرفته‌ترین تابع چاپ با پشتیبانی از f-string، محاسبات، برش رشته، توابع متنی و ...
+            </div>
+            <div class="code-block">
+<pre><code># تمام قابلیت‌های put() در یک نگاه
+str name = ^Ali Reza^
 int age = 21
 arr scores = i{95, 88, 92}
 
 put(^سلام ^, upper(name), ^! شما ^, age, ^ سالته دارید^)
-# → سلام ALI! شما 21 سالته دارید
+# → سلام ALI REZA! شما 21 سالته دارید
 
-put(f^نام: {name} | میانگین نمرات: {~sum(scores)/len(scores)~}^)
-# → نام: Ali | میانگین نمرات: 91.666...
+put(f^نام: {name} | میانگین: {~sum(scores)/len(scores)~}^)
+# → نام: Ali Reza | میانگین: 91.666...
 
-put(len(^دیم بهترین زبانه^), ^ کاراکتر^)           # → 15 کاراکتر
-put(name=>[0:1], ^ تا ^, name=>[1:])                 # → A تا li
-put(~3.14 * 5 * 5~)                                 # → 78.5</code></pre>
-            <div>
+put(len(^دیم بهترین زبان است^), ^ کاراکتر^)           # → 18 کاراکتر
+put(name=>[0:3], ^ تا ^, name=>[4:])                   # → Ali تا Reza
+put(lower(^DIM^))                                      # → dim
+put(~3.14 * 10 * 10~)                                  # → 314.0</code></pre>
+            </div>
+            <div class="tags">
                 <span class="tag">f-string</span>
                 <span class="tag">len()</span>
                 <span class="tag">upper()/lower()</span>
@@ -126,50 +139,63 @@ put(~3.14 * 5 * 5~)                                 # → 78.5</code></pre>
     <div class="section">
         <h2 class="cmd-title">()inp — ورودی هوشمند</h2>
         <div class="card">
-            <pre><code># تمام حالت‌های inp در یک مثال
-inp(name, ^اسم شما: ^)                    # رشته معمولی
-inp(age, i^سن شما (عدد): ^)                # فقط عدد صحیح
-inp(height, d^قد شما (متر): ^)             # عدد اعشاری
-inp(is_student, b^دانشجو هستید؟ (yes/no): ^)  # بولین هوشمند
-inp(password, f^رمز برای {name}: ^)        # پیام فرمتغیر
+            <div class="desc">
+                ورودی با تشخیص خودکار نوع داده، پیام فرمت‌شده و پشتیبانی از بولین فارسی
+            </div>
+            <div class="code-block">
+<pre><code># تمام حالت‌های inp()
+inp(name, ^اسم شما چیست؟ ^)                    # رشته
+inp(age, i^سن شما (عدد): ^)                     # عدد صحیح
+inp(height, d^قد شما (متر): ^)                  # عدد اعشاری
+inp(active, b^آیا فعال هستید؟ (yes/no): ^)     # بولین هوشمند
+inp(pass, f^رمز عبور برای {name}: ^)           # پیام با متغیر
 
-# حتی بدون متغیر (فقط نمایش پیام)
-inp(¿, ^برای ادامه Enter بزنید...^)</code></pre>
-            <div>
+inp(¿, ^برای ادامه Enter بزنید...^)             # فقط نمایش پیام</code></pre>
+            </div>
+            <div class="tags">
                 <span class="tag">i^ d^ b^ f^</span>
-                <span class="tag">پیام فرمت‌شده</span>
-                <span class="tag">تشخیص خودکار yes/no</span>
+                <span class="tag">فرمت پیام</span>
+                <span class="tag">yes/no خودکار</span>
             </div>
         </div>
     </div>
 
     <!-- str = -->
     <div class="section">
-        <h2 class="cmd-title">str = — رشته‌ها</h2>
+        <h2 class="cmd-title">str = — تعریف رشته</h2>
         <div class="card">
-            <pre><code># تمام روش‌های تعریف و کار با رشته
-str a = ^سلام دنیا^
-str b = text=>[0:5]                    # برش از متغیر دیگر
-str c = ^سلام ^ + name + ^!^
-str d = f^امروز {~time(now)~} است^      # f-string با محاسبه
+            <div class="desc">
+                تعریف رشته با پشتیبانی از الحاق، برش، f-string و متن چندخطی
+            </div>
+            <div class="code-block">
+<pre><code>str greeting = ^سلام دنیا^
+str part = greeting=>[6:]                 # → دنیا
+str full = ^سلام ^ + name + ^ عزیز^
+str today = f^امروز {~time(now)~} است^
 
-str long = """
-این یک متن
-چند خطی
-خیلی تمیز است!
+str poem = """
+دیم زبان آینده است
+زیبا، ساده و قدرتمند
+ساخت ایران
 """</code></pre>
+            </div>
         </div>
     </div>
 
-    <!-- int = / dou = / bol = -->
+    <!-- int / dou / bol -->
     <div class="section">
-        <h2 class="cmd-title">int =  •  dou =  •  bol =</h2>
+        <h2 class="cmd-title">int = • dou = • bol =</h2>
         <div class="card">
-            <pre><code>int x = 1404
-dou pi = 3.14159
-bol active = true
-bol flag = ~age > 18~           # محاسبه بولین
-bol test = ^yes^                # تشخیص خودکار از رشته</code></pre>
+            <div class="desc">
+                تعریف متغیرهای عددی و بولین با محاسبه مستقیم
+            </div>
+            <div class="code-block">
+<pre><code>int year = 1404
+dou pi = 3.1415926535
+bol is_active = true
+bol adult = ~age >= 18~          # محاسبه بولین
+bol from_str = ^yes^             # تبدیل خودکار</code></pre>
+            </div>
         </div>
     </div>
 
@@ -177,12 +203,17 @@ bol test = ^yes^                # تشخیص خودکار از رشته</code></
     <div class="section">
         <h2 class="cmd-title">arr = — آرایه‌ها</h2>
         <div class="card">
-            <pre><code>arr numbers = i{10, 20, 30, 40}
-arr names    = s{^Ali^, reza, "Sara"}
-arr mixed    = m{1+5, age*2 name=>[0:1]}
+            <div class="desc">
+                سه نوع آرایه: عددی، رشته‌ای و محاسباتی
+            </div>
+            <div class="code-block">
+<pre><code>arr nums   = i{10, 20, 30, 40}
+arr names  = s{^Ali^, ^Reza^, "Sara"}
+arr calc   = m{1+2, age*2, nums[0]}
 
-put(names[1])        # → reza
-put(names[^Ali^])    # → 0 (اندیس اولین تطابق)</code></pre>
+put(names[1])        # → Reza
+put(names[^Ali^])    # → 0 (جستجو)</code></pre>
+            </div>
         </div>
     </div>
 
@@ -190,31 +221,42 @@ put(names[^Ali^])    # → 0 (اندیس اولین تطابق)</code></pre>
     <div class="section">
         <h2 class="cmd-title">con$ — ثابت‌ها</h2>
         <div class="card">
-            <pre><code>con$pi = 3.14159
+            <div class="desc">
+                مقادیر ثابت و غیرقابل تغییر در طول برنامه
+            </div>
+            <div class="code-block">
+<pre><code>con$pi = 3.14159
 con$app_name = ^دیم^
 con$version = 1.4
+con$author = ^محمد ابوالفضل^
 
-# ثابت‌ها قابل تغییر نیستند:
-# con$pi = 3 → خطا!</code></pre>
+# خطا: con$pi = 3 → غیرمجاز!</code></pre>
+            </div>
         </div>
     </div>
 
-    <!-- IF / LOOP -->
+    <!-- کنترل جریان -->
     <div class="section">
         <h2 class="cmd-title">IF • ELSEIF • ELSE • LOOP</h2>
         <div class="card">
-            <pre><code>IF(age >= 18)>>{
-    put(^بالغ هستید^)
+            <div class="desc">
+                کنترل جریان با سینتکس ساده و قدرتمند
+            </div>
+            <div class="code-block">
+<pre><code>IF(age >= 18)>>{
+    put(^شما بالغ هستید^)
 }ELSEIF(age >= 13)>>{
     put(^نوجوان^)
 }ELSE{
     put(^کودک^)
 }
 
+int count = 0
 LOOP(count < 5)>>{
     put(^شمارش: ^, count)
     int count = ~count + 1~
 }</code></pre>
+            </div>
         </div>
     </div>
 
@@ -222,12 +264,14 @@ LOOP(count < 5)>>{
     <div class="section">
         <h2 class="cmd-title">()time — زمان و تایمر</h2>
         <div class="card">
-            <pre><code>time()                    # یونیکس تایم
-time(now)                 # تاریخ و ساعت فعلی
-time(clock)               # ساعت دیجیتال زنده
-time(countdown,10)        # شمارش معکوس ۱۰ ثانیه
-time(timer)               # شروع/ن/توقف تایمر
-time(delay,2000)          # مکث ۲ ثانیه</code></pre>
+            <div class="code-block">
+<pre><code>time()                    # یونیکس تایم
+time(now)                 # تاریخ و ساعت
+time(clock)               # ساعت زنده
+time(countdown,10)        # شمارش معکوس
+time(timer)               # تایمر دستی
+time(delay,1500)          # مکث 1.5 ثانیه</code></pre>
+            </div>
         </div>
     </div>
 
@@ -235,10 +279,13 @@ time(delay,2000)          # مکث ۲ ثانیه</code></pre>
     <div class="section">
         <h2 class="cmd-title">()math — توابع ریاضی</h2>
         <div class="card">
-            <pre><code>math(sqrt,16)         # → 4.0
+            <div class="code-block">
+<pre><code>math(sqrt,16)         # → 4.0
 math(pow,2,10)        # → 1024
 math(sin,3.14)        # سینوس
-math(randint,1,100)   # عدد تصادفی ۱ تا ۱۰۰</code></pre>
+math(cos,0)
+math(randint,1,100)   # عدد تصادفی</code></pre>
+            </div>
         </div>
     </div>
 
@@ -246,23 +293,30 @@ math(randint,1,100)   # عدد تصادفی ۱ تا ۱۰۰</code></pre>
     <div class="section">
         <h2 class="cmd-title">()file — کار با فایل</h2>
         <div class="card">
-            <pre><code>file(open,data.txt)
-file(write,data.txt,^سلام دنیا^)
-file(append,log.txt,^ورود جدید^)
-file(read,data.txt)       # نمایش محتوا
-file(close,data.txt)
-file(delete,old.txt)</code></pre>
+            <div class="code-block">
+<pre><code>file(open, data.txt)
+file(write, data.txt, ^سلام دیم^)
+file(append, log.txt, ^ورود جدید^)
+file(read, data.txt)
+file(close, data.txt)
+file(delete, temp.txt)</code></pre>
+            </div>
         </div>
     </div>
 
-    <!-- beep() / cls() / color() -->
+    <!-- صدا و نمایش -->
     <div class="section">
         <h2 class="cmd-title">()beep • cls() • color()</h2>
         <div class="card">
-            <pre><code>beep(440,500)             # بوق ۵۰۰ میلی‌ثانیه
-cls()                     # پاک کردن صفحه
-color(cyan,black)         # رنگ متن و پس‌زمینه
-color(reset)              # بازگشت به حالت پیش‌فرض</code></pre>
+            <div class="code-block">
+<pre><code>beep(440, 500)        # بوق ۵۰۰ms
+beep(880, 200, 100)    # ولوم ۱۰۰
+
+cls()                 # پاک کردن صفحه
+color(cyan)           # فقط رنگ متن
+color(red, black)     # متن قرمز، پس‌زمینه مشکی
+color(reset)          # بازگشت به پیش‌فرض</code></pre>
+            </div>
         </div>
     </div>
 
