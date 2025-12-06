@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>inp() - کامل‌ترین دستور ورودی در Dim</title>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        body {margin:0;font-family:'Vazirmatn',sans-serif;background:#0f0c29;color:#fff;line-height:1.8;}
+        .back{position:fixed;top:20px;left:20px;background:rgba(255,255,255,.15);padding:12px 25px;border-radius:50px;z-index:999;}
+        .back a{color:#fff;text-decoration:none;font-weight:bold;}
+        header{text-align:center;padding:80px 20px;background:linear-gradient(135deg,#667eea,#764ba2);}
+        .logo{width:130px;animation:float 6s infinite;}
+        @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-20px)}}
+        h1{font-size:3.8em;margin:20px 0;background:linear-gradient(45deg,#00d4ff,#f093fb);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+        .container{max-width:1100px;margin:0 auto;padding:40px 20px;}
+        .section{background:rgba(255,255,255,.08);border-radius:20px;padding:35px;margin:35px 0;backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.1);}
+        .syntax{background:#1e1e2e;padding:22px;border-radius:15px;font-family:monospace;font-size:1.25em;overflow-x:auto;border-left:6px solid #00d4ff;margin:20px 0;}
+        .example{background:#1e1e2e;padding:25px;border-radius:15px;margin:25px 0;}
+        .output{background:#000;padding:18px;border-radius:12px;color:#0f0;font-family:monospace;margin-top:15px;border:1px solid #0f0;}
+        table{width:100%;border-collapse:collapse;margin:30px 0;}
+        th,td{padding:18px;text-align:right;border-bottom:1px solid rgba(255,255,255,.1);}
+        th{background:rgba(102,126,234,.4);font-size:1.3em;}
+        .badge{background:#00d4ff;color:#000;padding:8px 20px;border-radius:50px;font-weight:bold;font-size:0.9em;}
+        .btn-home{display:inline-block;background:#00d4ff;color:#000;padding:18px 50px;border-radius:50px;text-decoration:none;font-weight:bold;margin:40px 0;font-size:1.3em;}
+    </style>
+</head>
+<body>
+
+<div class="back"><a href="docs.html">← بازگشت به مستندات</a></div>
+
+<header>
+    <img src="logo.png" alt="Dim Logo" class="logo">
+    <h1>دستور inp()</h1>
+    <p>قدرتمندترین و هوشمندترین سیستم ورودی در زبان‌های فارسی</p>
+</header>
+
+<div class="container">
+
+    <div class="section">
+        <h2>سینتکس کلی</h2>
+        <div class="syntax">inp(نام_متغیر, نوع^پیام هوشمند^)</div>
+        <p>دستور <code>inp()</code> تنها دستور ورودی در دایموند است — اما همه چیز رو پوشش می‌ده!</p>
+    </div>
+
+    <div class="section">
+        <h2>انواع ورودی — همه در یک دستور!</h2>
+        <table>
+            <tr><th>نوع</th><th>پیشوند</th><th>مثال</th><th>خروجی</th></tr>
+            <tr><td>رشته (پیش‌فرض)</td><td>بدون پیشوند</td><td><code>inp(name, ^اسمت چیه؟^)</code></td><td>هر متنی</td></tr>
+            <tr><td>عدد صحیح</td><td><span class="badge">i^</span></td><td><code>inp(age, i^سنت چند است؟^)</code></td><td>فقط عدد صحیح</td></tr>
+            <tr><td>عدد اعشاری</td><td><span class="badge">d^</span></td><td><code>inp(price, d^قیمت:^)</code></td><td>عدد با ممیز</td></tr>
+            <tr><td>بولین (درست/غلط)</td><td><span class="badge">b^</span></td><td><code>inp(active, b^آیا فعال؟^)</code></td><td>true/false</td></tr>
+            <tr><td>فرمت‌دار (f-string)</td><td><span class="badge">f^</span></td><td><code>inp(pass, f^رمز برای {name}:^)</code></td><td>پیام پویا</td></tr>
+            <tr><td>بدون پیام (خام)</td><td><span class="badge">null یا ¿</span></td><td><code>inp(¿, ^)</code></td><td>فقط ورودی بدون متن</td></tr>
+        </table>
+    </div>
+
+    <div class="section">
+        <h2>مثال‌های واقعی و پیشرفته</h2>
+        
+        <div class="example">
+            <h3>ورودی معمولی + عدد + بولین + فرمت‌دار</h3>
+            <pre><code>inp(name, ^نام و نام‌خانوادگی:^)
+inp(age, i^سن شما (سال):^)
+inp(height, d^قد (متر):^)
+inp(is_student, b^دانشجو هستید؟ (yes/no):^)
+inp(username, f^نام کاربری برای {name}:^)
+
+put(f^سلام {name} عزیز!)
+put(f^شما {age} ساله و {height} متر قد دارید^)
+put(f^وضعیت دانشجویی: {is_student}^)</code></pre>
+        </div>
+
+        <div class="example">
+            <h3>ورودی بدون نمایش پیام</h3>
+            <pre><code>put(^رمز عبور را وارد کنید (نمایش داده نمی‌شود):^)
+inp(password, ¿)</code></pre>
+        </div>
+
+        <div class="example">
+            <h3>بولین هوشمند (قبول همه فرمت‌ها)</h3>
+            <pre><code>inp(go, b^ادامه بدیم؟^)
+# قبول می‌کند: yes, on, 1, true, ok, بله, آره, ادامه</code></pre>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>ویژگی‌های منحصر به فرد inp()</h2>
+        <ul style="font-size:1.3em;padding-right:40px;">
+            <li>پیام کاملاً فرمت‌دار با متغیرها (f-string)</li>
+            <li>تشخیص خودکار نوع ورودی</li>
+            <li>ورودی مخفی (رمز عبور)</li>
+            <li>قبول همه فرمت‌های بولین فارسی و انگلیسی</li>
+            <li>خطای هوشمند و کاربرپسند</li>
+            <li>بدون نیاز به تبدیل نوع دستی</li>
+        </ul>
+    </div>
+
+    <div style="text-align:center;">
+        <a href="docs.html" class="btn-home">برگشت به مستندات اصلی</a>
+    </div>
+
+</div>
+
+</body>
+</html>
