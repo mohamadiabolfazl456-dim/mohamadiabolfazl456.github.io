@@ -3,45 +3,273 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مستندات Dim</title>
-    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;700&display=swap" rel="stylesheet">
+    <title>مستندات کامل Dim Language • نسخه ۱.۴</title>
+    <link rel="icon" href="logo.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-wdth-normal.css" rel="stylesheet">
     <style>
-        body {margin:0; font-family:'Vazirmatn',sans-serif; background:#0f0c29; color:#fff;}
-        header {text-align:center;padding:60px 20px;background:linear-gradient(135deg,#667eea,#764ba2);}
-        .back {position:fixed;top:20px;left:20px;background:rgba(255,255,255,0.2);padding:10px 20px;border-radius:50px;}
-        .back a {color:#fff;text-decoration:none;}
-        h1 {font-size:3.5em;margin:20px 0;}
-        .commands {display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:30px;padding:40px;}
-        .cmd {background:rgba(255,255,255,0.1);border-radius:20px;padding:30px;text-align:center;transition:0.4s;}
-        .cmd:hover {transform:translateY(-10px);box-shadow:0 15px 30px rgba(102,126,234,0.3);}
-        .cmd h3 {color:#00d4ff;font-size:1.8em;margin:15px 0;}
-        .btn {background:#00d4ff;color:#000;padding:12px 35px;border-radius:50px;text-decoration:none;font-weight:bold;display:inline-block;margin-top:15px;}
+        :root {
+            --bg: #0f0c29;
+            --card:#1a1740;
+            --accent:#00e5ff;
+            --purple:#764ba2;
+            --text:#e0e0ff;
+        }
+        *{margin:0;padding:0;box-sizing:border-box;}
+        body{
+            font-family:'Vazirmatn',sans-serif;
+            background:#0f0c29;
+            color:var(--text);
+            min-height:100vh;
+            background:linear-gradient(135deg,#0f0c29,#302b63,#24243e);
+        }
+        .back{
+            position:fixed;top:20px;left:20px;background:rgba(0,229,255,0.2);
+            padding:12px 25px;border-radius:50px;color:var(--accent);text-decoration:none;
+            backdrop-filter:blur(10px);z-index:100;font-weight:bold;
+        }
+        header{
+            text-align:center;padding:60px 20px 40px;
+        }
+        .logo{
+            width:130px;animation:rot 20s linear infinite;margin-bottom:20px;
+        }
+        @keyframes rot{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+        h1{
+            font-size:3.8rem;background:linear-gradient(90deg,#764ba2,#00e5ff);
+            -webkit-background-clip:text;background-clip:text;color:transparent;
+        }
+        .version{color:var(--accent);font-size:1.3rem;margin:15px 0;}
+        .container{max-width:1100px;margin:0 auto;padding:0 20px;}
+        .section{
+            margin:60px 0;
+        }
+        .cmd-title{
+            font-size:2.8rem;color:var(--accent);text-align:center;margin:40px 0 30px;
+            text-shadow:0 0 20px rgba(0,229,255,0.5);
+        }
+        .card{
+            background:var(--card);border-radius:24px;padding:30px;margin:25px 0;
+            box-shadow:0 10px 30px rgba(0,0,0,0.5;border:1px solid rgba(118,75,162,0.3);
+            transition:0.4s;
+        }
+        .card:hover{
+            transform:translateY(-12px);box-shadow:0 20px 40px rgba(118,75,162,0.4);
+        }
+        pre{
+            background:#0d0b1e;padding:20px;border-radius:16px;overflow-x:auto;
+            border:1px solid #764ba2;direction:ltr;text-align:left;margin:20px 0;
+            font-size:1.05rem;
+        }
+        code{
+            font-family:'JetBrains Mono',monospace;color:#00e5ff;
+        }
+        .tag{
+            display:inline-block;background:rgba(0,229,255,0.2);color:var(--accent);
+            padding:6px 14px;border-radius:30px;margin:4px;font-size:0.9rem;
+        }
+        table{
+            width:100%;border-collapse:collapse;margin:25px 0;background:var(--card);border-radius:16px;overflow:hidden;
+        }
+        th,td{
+            padding:14px;text-align:center;border-bottom:1px solid rgba(118,75,162,0.4);
+        }
+        th{
+            background:rgba(118,75,162,0.4);color:white;
+        }
+        footer{
+            text-align:center;padding:80px 20px 40px;color:#666;font-size:0.95rem;
+        }
     </style>
 </head>
 <body>
 
-<div class="back"><a href="index.html">← صفحه اصلی</a></div>
+<a href="index.html" class="back">صفحه اصلی ←</a>
 
-<header>
-    <h1>مستندات کامل Dim</h1>
-    <p>تمام دستورات نسخه ۱.۴</p>
-</header>
+<div class="container">
+    <header>
+        <img src="logo.png" alt="Dim Logo" class="logo">
+        <h1>Dim Language</h1>
+        <div class="version">مستندات کامل • نسخه ۱.۴ • اولین زبان برنامه‌نویسی کامل فارسی</div>
+    </header>
 
-<div class="commands">
-    <div class="cmd"><h3>put()</h3><p>چاپ متن و متغیر</p><a href="put.html" class="btn">بیشتر →</a></div>
-    <div class="cmd"><h3>inp()</h3><p>گرفتن ورودی</p><a href="inp.html" class="btn">بیشتر →</a></div>
-    <div class="cmd"><h3>str =</h3><p>تعریف رشته</p><a href="str.html" class="btn">بیشتر →</a></div>
-    <div class="cmd"><h3>int =</h3><p>عدد صحیح</p><a href="int.html" class="btn">بیشتر →</a></div>
-    <div class="cmd"><h3>dou =</h3><p>عدد اعشاری</p><a href="dou.html" class="btn">بیشتر →</a></div>
-    <div class="cmd"><h3>bol =</h3><p>بولین</p><a href="bol.html" class="btn">بیشتر →</a></div>
-    <div class="cmd"><h3>arr =</h3><p>آرایه</p><a href="arr.html" class="btn">بیشتر →</a></div>
-    <div class="cmd"><h3>con$</h3><p>ثابت</p><a href="con.html" class="btn">بیشتر →</a></div>
-    <div class="cmd"><h3>IF / LOOP</h3><p>شرط و حلقه</p><a href="control.html" class="btn">بیشتر →</a></div>
-    <div class="cmd"><h3>time()</h3><p>زمان و تایمر</p><a href="time.html" class="btn">بیشتر →</a></div>
-    <div class="cmd"><h3>math()</h3><p>توابع ریاضی</p><a href="math.html" class="btn">بیشتر →</a></div>
-    <div class="cmd"><h3>file()</h3><p>کار با فایل</p><a href="file.html" class="btn">بیشتر →</a></div>
-    <div class="cmd"><h3>beep()</h3><p>صدا</p><a href="beep.html" class="btn">بیشتر →</a></div>
-    <div class="cmd"><h3>cls() / color()</h3><p>پاک کردن و رنگ</p><a href="display.html" class="btn">بیشتر →</a></div>
+    <!-- put() -->
+    <div class="section">
+        <h2 class="cmd-title">()put — چاپ و خروجی</h2>
+        <div class="card">
+            <p>قدرتمندترین تابع چاپ در تاریخ برنامه‌نویسی فارسی!</p>
+            <pre><code># مثال کامل تمام قابلیت‌های put()
+str name = ^Ali^
+int age = 21
+arr scores = i{95, 88, 92}
+
+put(^سلام ^, upper(name), ^! شما ^, age, ^ سالته دارید^)
+# → سلام ALI! شما 21 سالته دارید
+
+put(f^نام: {name} | میانگین نمرات: {~sum(scores)/len(scores)~}^)
+# → نام: Ali | میانگین نمرات: 91.666...
+
+put(len(^دیم بهترین زبانه^), ^ کاراکتر^)           # → 15 کاراکتر
+put(name=>[0:1], ^ تا ^, name=>[1:])                 # → A تا li
+put(~3.14 * 5 * 5~)                                 # → 78.5</code></pre>
+            <div>
+                <span class="tag">f-string</span>
+                <span class="tag">len()</span>
+                <span class="tag">upper()/lower()</span>
+                <span class="tag">=>[slice]</span>
+                <span class="tag">~eval~</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- inp() -->
+    <div class="section">
+        <h2 class="cmd-title">()inp — ورودی هوشمند</h2>
+        <div class="card">
+            <pre><code># تمام حالت‌های inp در یک مثال
+inp(name, ^اسم شما: ^)                    # رشته معمولی
+inp(age, i^سن شما (عدد): ^)                # فقط عدد صحیح
+inp(height, d^قد شما (متر): ^)             # عدد اعشاری
+inp(is_student, b^دانشجو هستید؟ (yes/no): ^)  # بولین هوشمند
+inp(password, f^رمز برای {name}: ^)        # پیام فرمتغیر
+
+# حتی بدون متغیر (فقط نمایش پیام)
+inp(¿, ^برای ادامه Enter بزنید...^)</code></pre>
+            <div>
+                <span class="tag">i^ d^ b^ f^</span>
+                <span class="tag">پیام فرمت‌شده</span>
+                <span class="tag">تشخیص خودکار yes/no</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- str = -->
+    <div class="section">
+        <h2 class="cmd-title">str = — رشته‌ها</h2>
+        <div class="card">
+            <pre><code># تمام روش‌های تعریف و کار با رشته
+str a = ^سلام دنیا^
+str b = text=>[0:5]                    # برش از متغیر دیگر
+str c = ^سلام ^ + name + ^!^
+str d = f^امروز {~time(now)~} است^      # f-string با محاسبه
+
+str long = """
+این یک متن
+چند خطی
+خیلی تمیز است!
+"""</code></pre>
+        </div>
+    </div>
+
+    <!-- int = / dou = / bol = -->
+    <div class="section">
+        <h2 class="cmd-title">int =  •  dou =  •  bol =</h2>
+        <div class="card">
+            <pre><code>int x = 1404
+dou pi = 3.14159
+bol active = true
+bol flag = ~age > 18~           # محاسبه بولین
+bol test = ^yes^                # تشخیص خودکار از رشته</code></pre>
+        </div>
+    </div>
+
+    <!-- arr = -->
+    <div class="section">
+        <h2 class="cmd-title">arr = — آرایه‌ها</h2>
+        <div class="card">
+            <pre><code>arr numbers = i{10, 20, 30, 40}
+arr names    = s{^Ali^, reza, "Sara"}
+arr mixed    = m{1+5, age*2 name=>[0:1]}
+
+put(names[1])        # → reza
+put(names[^Ali^])    # → 0 (اندیس اولین تطابق)</code></pre>
+        </div>
+    </div>
+
+    <!-- con$ -->
+    <div class="section">
+        <h2 class="cmd-title">con$ — ثابت‌ها</h2>
+        <div class="card">
+            <pre><code>con$pi = 3.14159
+con$app_name = ^دیم^
+con$version = 1.4
+
+# ثابت‌ها قابل تغییر نیستند:
+# con$pi = 3 → خطا!</code></pre>
+        </div>
+    </div>
+
+    <!-- IF / LOOP -->
+    <div class="section">
+        <h2 class="cmd-title">IF • ELSEIF • ELSE • LOOP</h2>
+        <div class="card">
+            <pre><code>IF(age >= 18)>>{
+    put(^بالغ هستید^)
+}ELSEIF(age >= 13)>>{
+    put(^نوجوان^)
+}ELSE{
+    put(^کودک^)
+}
+
+LOOP(count < 5)>>{
+    put(^شمارش: ^, count)
+    int count = ~count + 1~
+}</code></pre>
+        </div>
+    </div>
+
+    <!-- time() -->
+    <div class="section">
+        <h2 class="cmd-title">()time — زمان و تایمر</h2>
+        <div class="card">
+            <pre><code>time()                    # یونیکس تایم
+time(now)                 # تاریخ و ساعت فعلی
+time(clock)               # ساعت دیجیتال زنده
+time(countdown,10)        # شمارش معکوس ۱۰ ثانیه
+time(timer)               # شروع/ن/توقف تایمر
+time(delay,2000)          # مکث ۲ ثانیه</code></pre>
+        </div>
+    </div>
+
+    <!-- math() -->
+    <div class="section">
+        <h2 class="cmd-title">()math — توابع ریاضی</h2>
+        <div class="card">
+            <pre><code>math(sqrt,16)         # → 4.0
+math(pow,2,10)        # → 1024
+math(sin,3.14)        # سینوس
+math(randint,1,100)   # عدد تصادفی ۱ تا ۱۰۰</code></pre>
+        </div>
+    </div>
+
+    <!-- file() -->
+    <div class="section">
+        <h2 class="cmd-title">()file — کار با فایل</h2>
+        <div class="card">
+            <pre><code>file(open,data.txt)
+file(write,data.txt,^سلام دنیا^)
+file(append,log.txt,^ورود جدید^)
+file(read,data.txt)       # نمایش محتوا
+file(close,data.txt)
+file(delete,old.txt)</code></pre>
+        </div>
+    </div>
+
+    <!-- beep() / cls() / color() -->
+    <div class="section">
+        <h2 class="cmd-title">()beep • cls() • color()</h2>
+        <div class="card">
+            <pre><code>beep(440,500)             # بوق ۵۰۰ میلی‌ثانیه
+cls()                     # پاک کردن صفحه
+color(cyan,black)         # رنگ متن و پس‌زمینه
+color(reset)              # بازگشت به حالت پیش‌فرض</code></pre>
+        </div>
+    </div>
+
+    <footer>
+        زبان برنامه‌نویسی دیم • نسخه ۱.۴ • ۱۴۰۴<br>
+        اولین و کامل‌ترین زبان برنامه‌نویسی فارسی دنیا
+    </footer>
 </div>
 
 </body>
