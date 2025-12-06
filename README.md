@@ -36,8 +36,8 @@ Created in 2024–2025 by **Abolfazl Mohammadi**, from Iran — just "for favori
 
 ## 🚀 Live Website & Docs
 
-- **Official Site**: https://https://mohamadiabolfazl456-dim.github.io/mohamadiabolfazl456.github.io
-- **Full Documentation**: https://mohamadiabolfazl456-dim.github.io/mohamadiabolfazl456.github.iodocs.html
+- **Official Site**:https://mohamadiabolfazl456-dim.github.io/mohamadiabolfazl456.github.io
+- **Full Documentation**: https://mohamadiabolfazl456-dim.github.io/mohamadiabolfazl456.github.io.docs.html
 
 ## 🛠 Quick Start
 
